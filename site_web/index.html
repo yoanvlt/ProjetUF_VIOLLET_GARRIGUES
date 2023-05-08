@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <title>Documentation technique - Projet Infrastructure</title>
+</head>
+<body>
+    <header>
+        <h1>Documentation technique - Projet Infrastructure</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#creation-vm">Création des VMs</a></li>
+            <li><a href="#configuration-reseau">Configuration réseau</a></li>
+            <li><a href="#serveur-web">Mise en place du serveur web</a></li>
+            <li><a href="#sauvegarde">Configuration de la sauvegarde</a></li>
+            <li><a href="#bonnes-pratiques">Bonnes pratiques</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section id="creation-vm">
+            <h2>Création des VMs</h2>
+            <ol>
+                <li>Installez VirtualBox sur votre machine locale.</li>
+                <li>Créez 5 machines virtuelles avec les systèmes d'exploitation et configurations suivantes :
+                    <ul>
+                        <li>1 VM avec Windows pour client</li>
+                        <li>1 VM avec pfSense pour le pare-feu</li>
+                        <li>1 VM avec Linux pour client</li>
+                        <li>1 VM avec Linux pour le serveur web</li>
+                        <li>1 VM avec Linux pour le serveur de sauvegarde</li>
+                    </ul>
+                </li>
+                <li>Configurez les VMs avec les paramètres appropriés pour la RAM, le stockage, et les cartes réseau.</li>
+            </ol>
+        </section>
+        <section id="configuration-reseau">
+            <h2>Configuration réseau</h2>
+            <ol>
+                <li>Configurez un réseau interne pour les VMs dans VirtualBox.</li>
+                <li>Attribuez des adresses IP statiques aux VMs :
+                    <ul>
+                        <li>VM pfSense : WAN et LAN</li>
+                        <li>VM client Linux : adresse IP statique</li>
+                        <li>VM client Windows : adresse IP statique</li>
+                        <li>VM serveur web : adresse IP statique</li>
+                        <li>VM serveur de sauvegarde : adresse IP statique</li>
+                    </ul>
+                </li>
+                <li>Configurez les règles de pare-feu dans pfSense pour autoriser le trafic entre les VMs et vers l'extérieur.</li>
+            </ol>
+        </section>
+        <section id="sauvegarde">
+            <h2>Configuration de la sauvegarde</h2>
+            <ol>
+                <li>Installez un logiciel de sauvegarde (rsync) sur la VM dédiée à la sauvegarde.</li>
+                <li>Configurez la sauvegarde pour copier les fichiers du serveur web vers la VM de sauvegarde à intervalles réguliers (par exemple, toutes les nuits).</li>
+                <li>Testez le processus de sauvegarde en exécutant une sauvegarde manuelle et en vérifiant que les fichiers ont été correctement copiés sur la VM de sauvegarde.</li>
+                <li>Configurez la restauration des fichiers sauvegardés en cas de besoin.</li>
+            </ol>
+        </section>
+        <section id="bonnes-pratiques">
+            <h2>Bonnes pratiques</h2>
+            <ol>
+                <li>Sauvegarde et restauration : Assurez-vous que les sauvegardes sont effectuées régulièrement et qu'elles peuvent être restaurées en cas de problème.</li>
+                <li>Monitoring et alerting : Mettez en place un système de surveillance pour vérifier l'état de vos serveurs et services, et configurez des alertes pour être informé en cas de problème.</li>
+                <li>Sécurité : Appliquez les mises à jour de sécurité, utilisez des mots de passe forts, et configurez les pare-feu pour limiter les risques de failles de sécurité.</li>
+                <li>Documentation : Documentez votre infrastructure, les configurations et les procédures pour faciliter la maintenance et la résolution des problèmes.</li>
+            </ol>
+        </section>
+    </main>
+    <footer>
+        &copy; 2023 Projet Infrastructure. Tous droits réservés.
+    </footer>
+</body>
+</html>
